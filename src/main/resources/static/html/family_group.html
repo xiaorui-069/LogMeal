@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Member Connect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .family-list {
+            margin: 20px 0;
+        }
+        .family-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .family-list li {
+            background: #e8f5e9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .add-member-form {
+            margin-top: 20px;
+        }
+        .add-member-form input, .add-member-form button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Family Member Connect</h1>
+    <p>Here, adding your family member. We would send your result to your family If sharing your meal.</p>
+
+    <div class="family-list">
+        <h2>Family Members</h2>
+        <ul id="familyList"></ul>
+    </div>
+
+    <div class="add-member-form">
+        <h2>Add a New Member</h2>
+        <input type="text" id="memberName" placeholder="Enter member email" />
+        <button onclick="addMember()">Add Member</button>
+    </div>
+
+    <script>
+        function addMember() {
+            const memberName = document.getElementById('memberName').value;
+            if (memberName) {
+                const familyList = document.getElementById('familyList');
+                const newMember = document.createElement('li');
+                newMember.textContent = memberName;
+                familyList.appendChild(newMember);
+                document.getElementById('memberName').value = '';
+            } else {
+                alert('Please enter a email!');
+            }
+        }
+    </script>
+
+</body>
+</html>

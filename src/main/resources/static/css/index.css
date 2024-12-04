@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(
+            135deg,
+            #a8e6cf,
+            #dcedc1,
+            #ffd3b6,
+            #ffaaa5,
+            #ff8b94
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    font-size: 1.1rem;
+    color: #4caf50;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    color: #333333;
+    margin-top: 60px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.5rem;
+    margin: 10px 0 30px;
+    line-height: 1.6;
+    color: #34495e;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.button {
+    background: rgba(255, 255, 255, 0.9);
+    color: #4caf50;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4caf50;
+}
