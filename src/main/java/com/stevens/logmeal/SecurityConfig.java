@@ -25,7 +25,7 @@ public class SecurityConfig {
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
                 )
                 .oauth2Login(login -> login
-                        .defaultSuccessUrl("/"))
+                        .defaultSuccessUrl("/getToken"))
                 .logout(logout -> logout.logoutUrl("/logout")
                         .logoutSuccessUrl("/").permitAll()
                 );

@@ -28,14 +28,7 @@ public class RestEndpointController {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping("/getToken")
-    public ResponseEntity<String> getToken(@AuthenticationPrincipal OAuth2User principal) {
-        String email = principal.getAttribute("email");
-        Optional<UserToken> userToken = getUserToken(email);
-        return userToken.map(token -> ResponseEntity.ok(token.getToken())).orElseGet(() -> ResponseEntity.ok(signUpToApiClient(email)));
-    }
-
-    String signUpToApiClient(String username) {
+    public String signUpToApiClient(String username) {
         String url = "https://api.logmeal.com/v2/users/signUp";
         Map<String, Object> body = new HashMap<>();
         body.put("username", username);
@@ -45,11 +38,9 @@ public class RestEndpointController {
         update(new UserToken(id, username, username, user_token));
         return user_token;
     }
-
-    Optional<UserToken> getUserToken(String email) {
+    public Optional<UserToken> getUserToken(String email) {
         return userTokenRepository.findByEmail(email);
     }
-
     void update(UserToken userToken) {
         userTokenRepository.save(userToken);
     }

@@ -46,22 +46,13 @@ function isLoggedIn() {
     // isTokenExpired();
     return localStorage.getItem('token') !== null;
 }
-
-function setOrUpdateToken() {
+function renderGateWay(){
+    window.location.href = '/html/gateway.html';
+}
+function setOrUpdateToken(token) {
     if(localStorage.getItem('token') === null)
-        $.ajax({
-            url: '/getToken',
-            type: 'GET',
-            success: function (data) {
-                setItemWithExpiry('token', data, 20 * 60 * 1000);
-                window.location.href = 'html/gateway.html';
-            },
-            error: function (xhr, status, error) {
-                alert("Login is required!");
-            }
-        });
-    else
-        window.location.href = 'html/gateway.html';
+        setItemWithExpiry('token', token, 20 * 60 * 1000);
+    window.location.href = '/index.html';
 }
 
 function toggleDropdown() {
@@ -83,9 +74,9 @@ function handleClick() {
     const featuresLink = document.getElementById("featuresLink");
     //checkLoginStatus();
     if (isLoggedIn()) {
-        featuresLink.href = "html/family_group.html";
+        featuresLink.href = "/html/family_group.html";
     } else {
-        featuresLink.href = "index.html";
+        featuresLink.href = "/index.html";
         alert("Please log in to access features.");
     }
 }

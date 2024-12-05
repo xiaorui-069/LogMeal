@@ -1,0 +1,1 @@
+setOrUpdateToken(document.getElementById('tokenField').value);

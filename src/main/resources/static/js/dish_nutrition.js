@@ -47,7 +47,6 @@ function uploadImage() {
                 },
                 data: JSON.stringify({ imageId: imageId }),
                 success: function (nutritionResponse) {
-                    localStorage.setItem('nutritionResponse',nutritionResponse);
                     display(nutritionResponse);
                 },
                 error: function (error) {
